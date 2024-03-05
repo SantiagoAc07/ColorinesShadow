@@ -20,7 +20,7 @@ public class Choque : MonoBehaviour
             if (player.vidas <= 0)
             {
                 // Lógica para manejar game over
-                FindObjectOfType<Life>().GameOver();
+               // FindObjectOfType<Life>().GameOver();
             }
         }
     }

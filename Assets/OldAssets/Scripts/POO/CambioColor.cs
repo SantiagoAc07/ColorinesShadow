@@ -25,6 +25,6 @@ public class CambioColor : MonoBehaviour
         background.ActualizarColor(player.colorActual);
         gravedad.ActualizarGravedad(player.colorActual);
         luzJugador.ActualizarColor(player.colorActual);
-        uiManager.ActualizarColor(player.colorActual);
+     //   uiManager.ActualizarColor(player.colorActual);
     }
 }
