@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                // Aquí manejas el "Game Over" cuando se agota el tiempo.
+                // AquÃ­ manejas el "Game Over" cuando se agota el tiempo.
                 JuegoTerminado();
             }
         }
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
     {
         juegoTerminado = true;
         Debug.Log("Game Over");
-        // Puedes agregar aquí la lógica para reiniciar el juego, mostrar pantalla de Game Over, etc.
+        // Puedes agregar aquÃ­ la lÃ³gica para reiniciar el juego, mostrar pantalla de Game Over, etc.
     }
 
     void ActualizarTiempoUI()
