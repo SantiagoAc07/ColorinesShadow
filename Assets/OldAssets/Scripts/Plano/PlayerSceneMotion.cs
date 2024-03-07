@@ -22,7 +22,7 @@ public class PlayerSceneMotion : MonoBehaviour
                 // Verificar el color de la gema y cambiar la gravedad o incrementar puntos en consecuencia
                 if (gemaRenderer.color == colorGemaAzul)
                 {
-                    // Lógica para la gema azul (puedes incrementar puntos u realizar otras acciones)
+                    // Lï¿½gica para la gema azul (puedes incrementar puntos u realizar otras acciones)
                     GameController gameController = FindObjectOfType<GameController>();
                     if (gameController != null)
                     {
@@ -31,23 +31,18 @@ public class PlayerSceneMotion : MonoBehaviour
                 }
                 else if (gemaRenderer.color == colorGemaVerde)
                 {
-                    // Lógica para la gema verde (puedes cambiar la gravedad u realizar otras acciones)
-                    CambiarGravedad();
+                    // Lï¿½gica para la gema verde (puedes cambiar la gravedad u realizar otras acciones)
                     GameController gameController = FindObjectOfType<GameController>();
                     if (gameController != null)
                     {
                         gameController.IncrementarPuntos(puntosGemaVerde);
                     }
                 }
-                // Puedes agregar más condiciones para otros colores si es necesario
+                // Puedes agregar mï¿½s condiciones para otros colores si es necesario
             }
         }
     }
 
-    private void CambiarGravedad()
-    {
-        Physics2D.gravity = gravedadInvertida ? new Vector2(0, -9.81f) : new Vector2(0, 9.81f);
-        gravedadInvertida = !gravedadInvertida;
-    }
+
 }
 

@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public string tiempoText;
     public string puntosText;
     private bool juegoTerminado = false;
+   
 
     void Start()
     {
@@ -55,4 +56,6 @@ public class GameController : MonoBehaviour
         puntos += cantidad;
         ActualizarPuntosUI();
     }
+
+
 }
