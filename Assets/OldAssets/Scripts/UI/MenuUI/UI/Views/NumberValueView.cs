@@ -1,21 +1,21 @@
 using System.Collections.Generic;
+using System.Drawing;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NumberValueView : MonoBehaviour
 {
-    public List<Sprite> values = new List<Sprite>();
+    public TMP_Text tex;
+    private float point;
     
-    private Image imageRender;
+    
 
-    private void Awake()
-    {
-        imageRender = GetComponent<Image>();
-    }
+    
 
     public void SetNumber(int number)
     {
-        imageRender.sprite = values[number];
+        tex.text = point.ToString("f0");
     }
 
 }

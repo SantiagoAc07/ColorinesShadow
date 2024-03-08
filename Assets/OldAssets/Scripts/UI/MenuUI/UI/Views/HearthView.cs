@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class HearthView : MonoBehaviour
 {
     public Sprite fullHeart;
-    public Sprite halfHeart;
     public Sprite emptyHeart;
 
     private Image imageRender;

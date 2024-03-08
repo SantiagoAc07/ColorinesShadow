@@ -22,6 +22,6 @@ public class UITest : MonoBehaviour
         {
             Debug .Log("lose");
         }
-        lifeController.UpdateLife(life);
+        
     }
 }

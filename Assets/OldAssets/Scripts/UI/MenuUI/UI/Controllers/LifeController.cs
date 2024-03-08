@@ -4,26 +4,27 @@ using UnityEngine;
 public class LifeController : MonoBehaviour
 {
 
-    public List<HearthView> hearthViews = new List<HearthView>();
-    
-    public void UpdateLife( int amount )
-    {
 
+
+    //public void UpdateLife(int amount)
+    //{
+    //}
+
+    public List<HearthView> hearthViews = new List<HearthView>();
+
+    public void UpdateLife(int amount)
+    {
+      
         foreach (var hearth in hearthViews)
         {
-            hearth.UpdateHeart(0);
+            hearth.UpdateHeart(0); // Actualiza la vista de las vidas (0 = vacío)
         }
 
         int amountHearth = (int)amount;
-
         for (int i = 0; i < amountHearth; i++)
         {
-            hearthViews[i].UpdateHeart(2);
+            hearthViews[i].UpdateHeart(2); // Actualiza la vista de las vidas (2 = lleno)
         }
-
-        int currentHearth = (int)amount % 2;
-        hearthViews[amountHearth].UpdateHeart(currentHearth);
-
+        
     }
-
 }

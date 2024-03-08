@@ -8,21 +8,37 @@ public class PlayerSceneMotion : MonoBehaviour
     public Color colorGemaAzul = Color.blue;
     public Color colorGemaVerde = Color.green;
     public int puntosGemaAzul = 10;
-    public int puntosGemaVerde = 20;
+    public int puntosGemaVerde = 10;
+
+    private float velocidadInicial = 1f; // Velocidad inicial del plano
+    private float tiempoParaIncrementarVelocidad = 6f; // Tiempo en segundos para incrementar la velocidad
+    private float incrementoPorcentaje = 0.1f; // Incremento del 10% cada vez
+
+    private void Start()
+    {
+        StartCoroutine(IncrementarVelocidad());
+    }
+
+    private IEnumerator IncrementarVelocidad()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(tiempoParaIncrementarVelocidad);
+            velocidadInicial *= (1f + incrementoPorcentaje); // Incrementa la velocidad en un 10%
+            Debug.Log("Nueva velocidad: " + velocidadInicial); // eliminable
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Gema"))
         {
-            // Obtener el componente SpriteRenderer de la gema
             SpriteRenderer gemaRenderer = other.GetComponent<SpriteRenderer>();
 
             if (gemaRenderer != null)
             {
-                // Verificar el color de la gema y cambiar la gravedad o incrementar puntos en consecuencia
                 if (gemaRenderer.color == colorGemaAzul)
                 {
-                    // L�gica para la gema azul (puedes incrementar puntos u realizar otras acciones)
                     GameController gameController = FindObjectOfType<GameController>();
                     if (gameController != null)
                     {
@@ -31,18 +47,15 @@ public class PlayerSceneMotion : MonoBehaviour
                 }
                 else if (gemaRenderer.color == colorGemaVerde)
                 {
-                    // L�gica para la gema verde (puedes cambiar la gravedad u realizar otras acciones)
                     GameController gameController = FindObjectOfType<GameController>();
                     if (gameController != null)
                     {
                         gameController.IncrementarPuntos(puntosGemaVerde);
                     }
                 }
-                // Puedes agregar m�s condiciones para otros colores si es necesario
+                
             }
         }
     }
-
-
 }
 

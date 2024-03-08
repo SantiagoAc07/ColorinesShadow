@@ -5,32 +5,37 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public int puntos = 0;
-    public float tiempoLimite = 60f; // Tiempo en segundos
-    public string tiempoText;
+    public int vidas = 3; // Inicia con 3 vidas
     public string puntosText;
     private bool juegoTerminado = false;
-   
 
     void Start()
     {
         ActualizarPuntosUI();
-        ActualizarTiempoUI();
     }
 
     void Update()
     {
         if (!juegoTerminado)
         {
-            if (tiempoLimite > 0)
+            // Lógica del juego (colisiones, etc.)
+
+            // Ejemplo: Si colisiona con un obstáculo, resta una vida
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                tiempoLimite -= Time.deltaTime;
-                ActualizarTiempoUI();
+                RestarVida();
             }
-            else
-            {
-                // Aquí manejas el "Game Over" cuando se agota el tiempo.
-                JuegoTerminado();
-            }
+        }
+    }
+
+    void RestarVida()
+    {
+        vidas--;
+        ActualizarPuntosUI();
+
+        if (vidas <= 0)
+        {
+            JuegoTerminado();
         }
     }
 
@@ -41,14 +46,9 @@ public class GameController : MonoBehaviour
         // Puedes agregar aquí la lógica para reiniciar el juego, mostrar pantalla de Game Over, etc.
     }
 
-    void ActualizarTiempoUI()
-    {
-        tiempoText= "Tiempo: " + Mathf.Round(tiempoLimite);
-    }
-
     void ActualizarPuntosUI()
     {
-        puntosText= "Puntos: " + puntos;
+        puntosText = "Vidas: " + vidas; // Muestra las vidas en lugar de los puntos
     }
 
     public void IncrementarPuntos(int cantidad)
@@ -56,6 +56,4 @@ public class GameController : MonoBehaviour
         puntos += cantidad;
         ActualizarPuntosUI();
     }
-
-
 }
