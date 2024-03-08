@@ -1,5 +1,7 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class GemaController : MonoBehaviour
@@ -12,6 +14,9 @@ public class GemaController : MonoBehaviour
     private bool gemaVerdeActivada = false;
     private Rigidbody2D rb;
     public Collider2D col;
+    public Light2D lightSprite;
+    public Light2D lightTerrenoverde;
+    public Light2D lightTerrenorosada;// Referencia a la luz del terreno
     
     void Start()
 
@@ -27,6 +32,10 @@ public class GemaController : MonoBehaviour
             {
                 rb.gravityScale = 1f;
                 gemaRosadaActivada = false;
+                CambiarColor(Color.white);
+                lightTerrenorosada.enabled = true;
+                
+                
             }
         }
 
@@ -39,10 +48,23 @@ public class GemaController : MonoBehaviour
                 
                 // Invoke("Active",0.8f);
                 gemaVerdeActivada = false;
+                CambiarColor(Color.white);
+                lightTerrenoverde.enabled = true;
+                
+                
                 
             }
         }
     }
+    
+    void CambiarColor(Color color)
+    {
+        if (lightSprite != null)
+        {
+            lightSprite.color = color;
+        }
+    }
+    
 
     void ActivarGema(bool estado, Image iconoGema)
     {
@@ -54,7 +76,9 @@ public class GemaController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("GemaVerde"))
         {
             gemaVerdeActivada = true;
-           
+            CambiarColor(Color.green);
+            lightTerrenoverde.enabled = false;
+            
             
             
             Debug.Log("entro verde");
@@ -62,6 +86,8 @@ public class GemaController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("GemaRosada"))
         {
             gemaRosadaActivada = true;
+            CambiarColor(Color.magenta);
+            lightTerrenorosada.enabled = false;
             
             
             Debug.Log("entro rosa");

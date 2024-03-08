@@ -12,7 +12,7 @@ public class PlayerSceneMotion : MonoBehaviour
 
     private float velocidadInicial = 1f; // Velocidad inicial del plano
     private float tiempoParaIncrementarVelocidad = 6f; // Tiempo en segundos para incrementar la velocidad
-    private float incrementoPorcentaje = 0.1f; // Incremento del 10% cada vez
+    private float incrementoPorcentaje = 0.8f; // Incremento del 10% cada vez
 
     private void Start()
     {
