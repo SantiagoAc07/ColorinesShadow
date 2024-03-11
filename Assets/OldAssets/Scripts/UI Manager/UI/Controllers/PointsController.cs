@@ -9,8 +9,8 @@ public class PointsController : MonoBehaviour
     {
         foreach (var item in numberValueViews)
         {
-            int currentNumber = points % 10;
-            points /= 10;
+            int currentNumber = points % 1;
+            points /= 1;
 
             item.SetNumber( currentNumber );
         }
