@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject OptionsWindow;
+    [SerializeField] GameObject creditsWindow;
 
     private void Awake()
     {
@@ -31,11 +32,22 @@ public class MenuManager : MonoBehaviour
     {
         OptionsWindow.SetActive(false);
     }
+    
 
     public void Salir()
     {
         Application.Quit();
         Debug.Log("Saliste de el juego");
+    }
+    
+    public void Credits()
+    {
+        creditsWindow.SetActive(true);
+    }
+
+    public void GoBackCredits()
+    {
+        creditsWindow.SetActive(false);
     }
 
 }

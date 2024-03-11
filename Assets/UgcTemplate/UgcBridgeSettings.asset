@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8652208d996ba1a4bbb4949db25379a3, type: 3}
+  m_Name: UgcBridgeSettings
+  m_EditorClassIdentifier: 
+  m_ProjectId: 
+  m_Environment: production
+  m_ContentTypes:
+  - m_Name: Default
+    m_UserAuthenticationStepAsset: {fileID: 11400000, guid: 30281144dc2840346b34e028baceb152, type: 2}
+    m_ContentSelectionStepAsset: {fileID: 11400000, guid: dda4a3fac5467b2448b661e32d4cae75, type: 2}
+    m_ContentPublishingStepAsset: {fileID: 11400000, guid: e4eb3806c17ef0740be20ec17337e6ca, type: 2}
+    m_ContentValidationStepAsset: {fileID: 11400000, guid: d1ccf8d07ecdd455d8429b7afe1f21dd, type: 2}
+    m_ContentBuildingStepAsset: {fileID: 11400000, guid: 7f248d78e00a24e40924708595644261, type: 2}
+  m_CurrentContentTypeIndex: 0
