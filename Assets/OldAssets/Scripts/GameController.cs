@@ -1,59 +1,56 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public int puntos = 0;
-    public int vidas = 3; // Inicia con 3 vidas
-    public string puntosText;
-    private bool juegoTerminado = false;
+    public float distanciaRaycast;
+    public LayerMask capaPared;
+    public LifeController LifeController;
+    public float segundosDeEspera;
+    public IntVariable puntos;
+    public IntVariable vidas; // Inicia con 3 vidas
+    public bool puedeRecibirDano;
 
-    void Start()
+    private void Start()
     {
-        ActualizarPuntosUI();
+        puedeRecibirDano = true;
+        LifeController.Subscribe();
+        vidas.SetValue(3);
     }
 
-    void Update()
+    private void Update()
     {
-        if (!juegoTerminado)
-        {
-            // Lógica del juego (colisiones, etc.)
+        // Create a vector of direction to the right in 2D space.
+        Vector2 direccionDerecha = Vector2.right;
 
-            // Ejemplo: Si colisiona con un obstáculo, resta una vida
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                RestarVida();
-            }
+        
+        // Perform a 2D Raycast from the current object's position.
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccionDerecha, distanciaRaycast, capaPared);
+
+        // If there's a collision, execute the RestarVida() method.
+        if (hit.collider != null && puedeRecibirDano)
+        {
+            StartCoroutine(RestarVida());
         }
     }
 
-    void RestarVida()
+    IEnumerator RestarVida()
     {
-        vidas--;
-        ActualizarPuntosUI();
-
-        if (vidas <= 0)
-        {
-            JuegoTerminado();
-        }
-    }
-
-    void JuegoTerminado()
-    {
-        juegoTerminado = true;
-        Debug.Log("Game Over");
-        // Puedes agregar aquí la lógica para reiniciar el juego, mostrar pantalla de Game Over, etc.
-    }
-
-    void ActualizarPuntosUI()
-    {
-        puntosText = "Vidas: " + vidas; // Muestra las vidas en lugar de los puntos
+        puedeRecibirDano = false;
+        vidas.SetValue(vidas.Value - 1);
+        Debug.Log(vidas.Value);
+        yield return new WaitForSeconds(segundosDeEspera);
+        puedeRecibirDano = true;
     }
 
     public void IncrementarPuntos(int cantidad)
     {
-        puntos += cantidad;
-        ActualizarPuntosUI();
+        puntos.SetValue(puntos.Value + cantidad);;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector2.right * distanciaRaycast);
     }
 }

@@ -3,7 +3,10 @@ guid: bf17eab682adc854cab0c765a3a7af5b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lifeController: {instanceID: 0}
+  - life: {fileID: 11400000, guid: 4cdec418e9f5fcd44ac284a664415fca, type: 2}
+  - score: {fileID: 11400000, guid: 4cdec418e9f5fcd44ac284a664415fca, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

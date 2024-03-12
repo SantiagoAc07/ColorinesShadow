@@ -1,18 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PointsController : MonoBehaviour
 {
     public List<NumberValueView> numberValueViews = new List<NumberValueView>();
+    private TMP_Text tex;
 
-    public void UpdatePoints( int points )
+    public void UpdatePoints(int points)
     {
-        foreach (var item in numberValueViews)
+        for (int i = numberValueViews.Count - 1; i >= 0; i--)
         {
-            int currentNumber = points % 1;
-            points /= 1;
+            int currentNumber = points % 10;
+            points /= 10;
 
-            item.SetNumber( currentNumber );
+            numberValueViews[i].SetNumber(currentNumber);
+            tex.text = points.ToString("F0");
         }
     }
 }

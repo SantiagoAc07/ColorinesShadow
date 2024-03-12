@@ -13,7 +13,6 @@ public class GemaController : MonoBehaviour
     private bool gemaRosadaActivada = false;
     private bool gemaVerdeActivada = false;
     private Rigidbody2D rb;
-    public Collider2D col;
     public Light2D lightSprite;
     public Light2D lightTerrenoverde;
     public Light2D lightTerrenorosada;// Referencia a la luz del terreno
@@ -79,9 +78,6 @@ public class GemaController : MonoBehaviour
             CambiarColor(Color.green);
             lightTerrenoverde.enabled = false;
             
-            
-            
-            Debug.Log("entro verde");
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("GemaRosada"))
         {
@@ -89,8 +85,6 @@ public class GemaController : MonoBehaviour
             CambiarColor(Color.magenta);
             lightTerrenorosada.enabled = false;
             
-            
-            Debug.Log("entro rosa");
         }
         
         
