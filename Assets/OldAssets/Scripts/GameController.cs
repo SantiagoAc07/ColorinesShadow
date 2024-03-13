@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public IntVariable puntos;
     public IntVariable vidas; // Inicia con 3 vidas
     public bool puedeRecibirDano;
+    public PointsController totalpuntos;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
     public void IncrementarPuntos(int cantidad)
     {
         puntos.SetValue(puntos.Value + cantidad);;
+        
     }
 
     private void OnDrawGizmos()
