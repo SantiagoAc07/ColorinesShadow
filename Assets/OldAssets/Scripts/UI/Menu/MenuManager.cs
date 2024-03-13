@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         OptionsWindow.SetActive(false);
+        creditsWindow.SetActive(false);
     }
 
     public void PlayOnePlayer()
@@ -31,6 +32,7 @@ public class MenuManager : MonoBehaviour
     public void Volver()
     {
         OptionsWindow.SetActive(false);
+        creditsWindow.SetActive(false);
     }
     
 
