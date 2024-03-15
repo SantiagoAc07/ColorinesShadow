@@ -16,8 +16,8 @@ public class GemaController : MonoBehaviour
     public Light2D lightSprite;
     public Light2D lightTerrenoverde;
     public Light2D lightTerrenorosada;// Referencia a la luz del terreno
-    public int puntos = 0;
-    public PointsController controlarpoint;
+    
+    public IntVariable puntos;
     void Start()
 
     {
@@ -79,22 +79,15 @@ public class GemaController : MonoBehaviour
             gemaVerdeActivada = true;
             CambiarColor(Color.green);
             lightTerrenoverde.enabled = false;
-            puntos += 1;
-            controlarpoint.UpdatePoints(puntos);
-
+            puntos.SetValue(puntos.Value + 1);
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("GemaRosada"))
         {
             gemaRosadaActivada = true;
             CambiarColor(Color.magenta);
             lightTerrenorosada.enabled = false;
-            puntos += 1;
-            controlarpoint.UpdatePoints(puntos);
-            
+            puntos.SetValue(puntos.Value + 1);
         }
-        
-        
-
 
     }
     // public void Active()

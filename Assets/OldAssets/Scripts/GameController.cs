@@ -5,17 +5,15 @@ public class GameController : MonoBehaviour
 {
     public float distanciaRaycast;
     public LayerMask capaPared;
-    public LifeController LifeController;
     public float segundosDeEspera;
-    public IntVariable puntos;
-    public IntVariable vidas; // Inicia con 3 vidas
     public bool puedeRecibirDano;
-    public PointsController totalpuntos;
 
+    public IntVariable vidas; // Inicia con 3 vidas
+    public IntVariable score;
+    
     private void Start()
     {
         puedeRecibirDano = true;
-        LifeController.Subscribe();
         vidas.SetValue(3);
     }
 
@@ -39,15 +37,13 @@ public class GameController : MonoBehaviour
     {
         puedeRecibirDano = false;
         vidas.SetValue(vidas.Value - 1);
-        Debug.Log(vidas.Value);
         yield return new WaitForSeconds(segundosDeEspera);
         puedeRecibirDano = true;
     }
 
     public void IncrementarPuntos(int cantidad)
     {
-        puntos.SetValue(puntos.Value + cantidad);;
-        
+        score.SetValue(score.Value + cantidad);;
     }
 
     private void OnDrawGizmos()

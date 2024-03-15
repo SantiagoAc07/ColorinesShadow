@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 
 public class SimpleTimer : MonoBehaviour
-
 {
     public TMP_Text tex; // Referencia al componente de texto para mostrar el temporizador
     float countdown = 0; // Tiempo inicial del temporizador (en segundos)
@@ -15,6 +14,5 @@ public class SimpleTimer : MonoBehaviour
         {
             countdown += Time.deltaTime; // Incrementa el temporizador
         }
-        tex.text = countdown.ToString("F0"); // Mostrar el tiempo redondeado (sin decimales)
     }
 }

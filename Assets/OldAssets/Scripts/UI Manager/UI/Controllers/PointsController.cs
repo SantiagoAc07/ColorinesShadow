@@ -4,9 +4,8 @@ using TMPro;
 
 public class PointsController : MonoBehaviour
 {
-    //public List<NumberValueView> numberValueViews = new List<NumberValueView>();
     public TMP_Text tex;
-
+    
     public void UpdatePoints(int points)
     {
 //        for (int i = numberValueViews.Count - 1; i >= 0; i--)
